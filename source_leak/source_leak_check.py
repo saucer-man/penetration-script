@@ -30,8 +30,7 @@ class source_leak_check(threading.Thread):
                             f1.write(vulnurl + '\n')
                         f1.close()
                         print("[+]源码泄露\tpayload: "+vulnurl)
-                    else:
-						pass
+                    # else:
                         # print("[-]不存在源码泄露\tpayload: " + vulnurl)
                 except:
                     # print("[-]连接失败\tpayload: "+vulnurl)
