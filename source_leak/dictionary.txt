@@ -1,6 +1,8 @@
 /.git/config
 /.svn/entries
 /.hg
+/config/.DS_Store
+/.DS_Store
 /.ds_store
 /WEB-INF/web.xml
 /a.zip
