@@ -17,6 +17,7 @@ class source_leak_check(threading.Thread):
         threading.Thread.__init__(self)
         self.queue = queue
         self.payloads = payloads
+        print('ready Runing:')
     def run(self):
         while not self.queue.empty():
             url=self.queue.get()
@@ -24,12 +25,29 @@ class source_leak_check(threading.Thread):
             for payload in self.payloads:
                 vulnurl = url + payload
                 try:
+                    flag = 0
                     req = requests.get(vulnurl, headers=headers, timeout=2, verify=False, allow_redirects=False)
                     if req.status_code == 200:
-                        with open('result.txt', 'a') as f1:
-                            f1.write(vulnurl + '\n')
-                        f1.close()
-                        print("[+]源码泄露\tpayload: "+vulnurl)
+                        if 'svn' in payload:
+                            if 'dir' in req.content and 'svn' in req.content:
+                                flag = 1
+                        if 'git' in payload:
+                            if 'repository' in req.content:
+                                flag = 1
+                        if  'zip' in payload or 'rar' in payload or 'gz' in payload or 'sql' in payload or 'tore' in payload:
+                            if 'html' not in req.headers['Content-Type'] :
+                                flag = 1
+                        if '/WEB-INF/web.xml' in payload:
+                            if 'web-app' in req.content:
+                                flag = 1
+                        if 'hg' in payload:
+                            if 'hg' in req.content:
+                                flag = 1
+                        if flag == 1:
+                            with open('result.txt', 'a') as f1:
+                                f1.write(vulnurl + '\n')
+                            f1.close()
+                            print("[+]信息泄露\tpayload: "+vulnurl)
                     # else:
                         # print("[-]不存在源码泄露\tpayload: " + vulnurl)
                 except:
