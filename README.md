@@ -4,4 +4,4 @@
 
 ## 目录
 
-- [信息泄露检测脚本](https://github.com/saucer-man/penetration-script/source_leak)
+- [信息泄露检测脚本](https://github.com/saucer-man/penetration-script/tree/master/source_leak)
