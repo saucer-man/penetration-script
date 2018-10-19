@@ -25,28 +25,34 @@ class source_leak_check(threading.Thread):
                 vulnurl = url + payload
                 try:
                     flag = 0
-                    req = requests.get(vulnurl, headers=headers, timeout=2, allow_redirects=False)
-                    if req.status_code == 200:
-                        if 'svn' in payload:
-                            if 'dir' in req.content and 'svn' in req.content:
-                                flag = 1
-                        if 'git' in payload:
-                            if 'repository' in req.content:
-                                flag = 1
-                        if  'zip' in payload or 'rar' in payload or 'gz' in payload or 'sql' in payload or 'tore' in payload:
+                    print('\033[1;33m[*]test:  %s\033[0m'%vulnurl)
+                    # 如果是备份文件则不需要下载，只需要head方法获取头部信息即可，否则文件较大会浪费大量的时间
+                    if 'zip' in payload or 'rar' in payload or 'gz' in payload or 'sql' in payload or 'tore' in vulnurl:
+                        req = requests.head(vulnurl, headers=headers, timeout=3, allow_redirects=False)
+                        if req.status_code == 200:
                             if 'html' not in req.headers['Content-Type'] :
                                 flag = 1
-                        if '/WEB-INF/web.xml' in payload:
-                            if 'web-app' in req.content:
-                                flag = 1
-                        if 'hg' in payload:
-                            if 'hg' in req.content:
-                                flag = 1
-                        if flag == 1:
-                            with open('result.txt', 'a') as f1:
-                                f1.write(vulnurl + '\n')
-                            f1.close()
-                            print("[+]信息泄露\tpayload: "+vulnurl)
+                    # 当检验git和svn、hg时则需要验证返回内容，get方法
+                    else:
+                        req = requests.get(vulnurl, headers=headers, timeout=3, allow_redirects=False)
+                        if req.status_code == 200:
+                            if 'svn' in payload:
+                                if 'dir' in req.content and 'svn' in req.content:
+                                    flag = 1
+                            elif 'git' in payload:
+                                if 'repository' in req.content:
+                                    flag = 1
+                            elif 'hg' in payload:
+                                if 'hg' in req.content:
+                                    flag = 1
+                            elif '/WEB-INF/web.xml' in payload:
+                                if 'web-app' in req.content:
+                                    flag = 1
+                    
+                    if flag == 1:
+                        with open('result.txt', 'a') as f1:
+                            f1.write(vulnurl + '\n')
+                        print("\033[1;31m[+]信息泄露\tpayload: %s\033[0m"%vulnurl)
                     # else:
                         # print("[-]不存在源码泄露\tpayload: " + vulnurl)
                 except:
@@ -102,12 +108,12 @@ def main():
             f.close()
         else:
             assert False, "Unhandled Option"
+    print('ready Runing:')
     threads = []
     threads_count = 30
     q=queue.Queue()
     for url in urlList:
         q.put(url)
-	print('ready Runing:')
     for i in range(threads_count):
         threads.append(source_leak_check(q,payloads))
     for t in threads:
