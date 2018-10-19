@@ -13,7 +13,7 @@
 - 扫描字典可自定义，可扩展
 
 ### 使用方法举例：
--使用帮助
+- 使用帮助
     - python3 source_leak_check.py -h
     - python3 source_leak_check.py --help
 - 扫描单个url
@@ -28,5 +28,5 @@
 
 我用1000条url测试的结果如下：
 
-[](![](http://ww1.sinaimg.cn/large/005GjT4tgy1fwdjszqoa2j30sh0bgdgj.jpg))
+[result.txt](http://ww1.sinaimg.cn/large/005GjT4tgy1fwdjszqoa2j30sh0bgdgj.jpg)
 
