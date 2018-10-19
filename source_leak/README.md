@@ -8,9 +8,9 @@
 
 ### 优点
 
-- 基于python3，采用线程池的方法，简单高效。
+- 基于python3，采用线程池的方法，简单，速度很快。
 - 采用状态码和返回包双重检验，几乎不存在误报。
-- 扫描字典可自定义，可扩展
+- 扫描字典可自定义，可扩展。
 
 ### 使用方法举例：
 - 使用帮助
@@ -24,9 +24,17 @@
     - python3 source_leak_check.py -list=target.txt
 
 ### 实战举例
-可以使用url采集器采集url保存在文本中，然后使用该扫描器。(当扫描数过多，部分url不可连接时，会浪费较多时间，因此建议放到服务器上跑)
+可以使用url采集器采集url保存在文本中，然后使用该扫描器。
 
 我用1000条url测试的结果如下：
 
-[result.txt](http://ww1.sinaimg.cn/large/005GjT4tgy1fwdjszqoa2j30sh0bgdgj.jpg)
+![teminal](http://ww1.sinaimg.cn/large/005GjT4tgy1fwdlvyv23wj30l409bjrz.jpg)
+
+当出现泄露时，高亮显示：
+
+![teminal](http://ww1.sinaimg.cn/large/005GjT4tgy1fwdlxutn4kj30l409b759.jpg)
+
+最终扫到几十条：
+
+![hello](http://ww1.sinaimg.cn/large/005GjT4tgy1fwdjszqoa2j30sh0bgdgj.jpg)
 
