@@ -26,7 +26,7 @@ class source_leak_check(threading.Thread):
                 vulnurl = url + payload
                 try:
                     flag = 0
-                    req = requests.get(vulnurl, headers=headers, timeout=2, verify=False, allow_redirects=False)
+                    req = requests.get(vulnurl, headers=headers, timeout=2, allow_redirects=False)
                     if req.status_code == 200:
                         if 'svn' in payload:
                             if 'dir' in req.content and 'svn' in req.content:
