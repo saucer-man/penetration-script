@@ -17,7 +17,6 @@ class source_leak_check(threading.Thread):
         threading.Thread.__init__(self)
         self.queue = queue
         self.payloads = payloads
-        print('ready Runing:')
     def run(self):
         while not self.queue.empty():
             url=self.queue.get()
@@ -108,6 +107,7 @@ def main():
     q=queue.Queue()
     for url in urlList:
         q.put(url)
+	print('ready Runing:')
     for i in range(threads_count):
         threads.append(source_leak_check(q,payloads))
     for t in threads:
