@@ -63,7 +63,7 @@ def usage():
     print('----------------------------')
     print('')
     print("SOURCE LEAK DETECTION")
-    print("Usage: ./01.py -u url -l target.txt")
+    print("Usage: python source_leak_check.py -u url -l target.txt")
     print("-u --url=baidu.com       --specify a single target ")
     print("-l --list=target.txt     - batch scanning")
     print("Examples: ")
@@ -86,7 +86,7 @@ def main():
     # read the parameters
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hl:u:",
-                                   ["help=", "url=", "list="])
+                                   ["help", "url=", "list="])
     except :
         usage()
     for o, a in opts:
