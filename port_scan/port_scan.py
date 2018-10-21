@@ -38,7 +38,7 @@ def usage():
     sys.exit(0)
 
 
-# 多线程端口扫描
+# 扫描
 def scanner(host, ports):
     nm = nmap.PortScanner()
     try:
