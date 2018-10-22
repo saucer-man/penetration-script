@@ -1,7 +1,7 @@
 # /usr/bin/env python3
 # _*_ coding:utf-8 _*_
 # auther: saucerman
-# project: https://github.com/saucer-man/saucer-frame
+# project: https://github.com/saucer-man/penetration-script
 
 """
 基于python-nmap的端口扫描器
