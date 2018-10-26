@@ -7,7 +7,6 @@
 /WEB-INF/web.xml
 /a.zip
 /web.zip
-/web.rar
 /bbs.rar
 /www.root.rar
 /123.rar
