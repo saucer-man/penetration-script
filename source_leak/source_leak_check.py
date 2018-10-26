@@ -30,7 +30,7 @@ class source_leak_check(threading.Thread):
                     if 'zip' in payload or 'rar' in payload or 'gz' in payload or 'sql' in payload or 'tore' in vulnurl:
                         req = requests.head(vulnurl, headers=headers, timeout=3, allow_redirects=False)
                         if req.status_code == 200:
-                            if 'html' not in req.headers['Content-Type'] :
+                            if 'html' not in req.headers['Content-Type'] and 'image' not in req.headers['Content-Type']:
                                 flag = 1
                     # 当检验git和svn、hg时则需要验证返回内容，get方法
                     else:
