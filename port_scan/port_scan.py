@@ -9,7 +9,6 @@ pip install python-nmap
 """
 
 import sys
-import nmap
 import time 
 from colorama import  init, Fore, Back, Style
 import getopt
@@ -25,6 +24,13 @@ class Colored(object):
         return Fore.YELLOW + s + Fore.RESET
 color = Colored()
 
+try:
+    import nmap
+except:
+	print("FATAL: Module nmap missing (python-nmap)")
+	sys.exit(1)
+	
+	
 # 使用说明
 def usage():
     print(color.blue('Usage: port scanner'))
