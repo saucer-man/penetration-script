@@ -4,6 +4,8 @@
 
 ## 目录
 
-- [信息泄露检测脚本](https://github.com/saucer-man/penetration-script/tree/master/source_leak)
+- [信息泄露检测](https://github.com/saucer-man/penetration-script/tree/master/source_leak)
 
 - [端口及服务扫描](https://github.com/saucer-man/penetration-script/tree/master/port_scan)
+
+- [子域名扫描](https://github.com/saucer-man/penetration-script/tree/master/subdomain_scan)
