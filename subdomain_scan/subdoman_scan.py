@@ -89,4 +89,4 @@ if __name__=='__main__':
         t.join()  
     end = time.time()
     print("result has saved in %s\n" % args.outfile)
-    print('\nScanner down with %0.6f seconds.'% (end - start))   
+    print('Scanner down with %0.6f seconds.'% (end - start))   
