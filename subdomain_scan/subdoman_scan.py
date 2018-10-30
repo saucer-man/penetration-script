@@ -30,7 +30,7 @@ class scanner(threading.Thread):
             if res:
                 for rdata in res:
                     address = rdata.address
-                    print(domain+' - '+address)
+                    print('[+]'+domain+' - '+address)
                     result.append(domain+' - '+address)
 
         print('                                 \r', end ='', flush=True)
@@ -80,13 +80,14 @@ if __name__=='__main__':
     elif args.threads > 50:
         args.threads = 50
 
-    print("Start violent crack the subdomain of %s\n" % args.domain)
+    print("Start violent cracking\n")
     start = time.time()
+    threadslist=[]
     for i in range(args.threads):
-        t = scanner(q)
+        threadslist.append(scanner(q)) 
+    for t in threadslist:
         t.start()
-    for i in range(args.threads):
-        t.join()  
+        t.join()
     end = time.time()
-    print("result has saved in %s\n" % args.outfile)
+    print("\nresult has saved in %s" % args.outfile)
     print('Scanner down with %0.6f seconds.'% (end - start))   
