@@ -87,6 +87,7 @@ if __name__=='__main__':
         threadslist.append(scanner(q)) 
     for t in threadslist:
         t.start()
+    for t in threadslist:
         t.join()
     end = time.time()
     print("\nresult has saved in %s" % args.outfile)
