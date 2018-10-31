@@ -118,6 +118,7 @@ def main():
         threads.append(source_leak_check(q,payloads))
     for t in threads:
         t.start()
+    for t in threads:
         t.join()
     print('检测结束，结果已保存至result.txt')
 if __name__=="__main__":
