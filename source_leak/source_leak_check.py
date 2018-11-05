@@ -9,6 +9,7 @@ decription : 检测网站源码泄露，备份文件泄露
 
 import getopt
 import sys
+import time
 import requests
 import queue
 import threading
@@ -25,7 +26,8 @@ class source_leak_check(threading.Thread):
                 vulnurl = url + payload
                 try:
                     flag = 0
-                    print('\033[1;33m[*]test:  %s\033[0m'%vulnurl)
+                    print('testing: ' + vulnurl+'                   \r', end='', flush=True)
+                    # print('\033[1;33m[*]test:  %s\033[0m'%vulnurl)
                     # 如果是备份文件则不需要下载，只需要head方法获取头部信息即可，否则文件较大会浪费大量的时间
                     if 'zip' in payload or 'rar' in payload or 'gz' in payload or 'sql' in payload or 'tore' in vulnurl:
                         req = requests.head(vulnurl, headers=headers, timeout=3, allow_redirects=False)
@@ -58,6 +60,7 @@ class source_leak_check(threading.Thread):
                 except:
                     # print("[-]连接失败\tpayload: "+vulnurl)
                     pass
+    print('                                 \r', end ='', flush=True)
 
 def usage():
     print('----------------------------')
@@ -76,6 +79,7 @@ def usage():
 
 
 def main():
+    start=time.time()
     urlList = []
     with open('dictionary.txt') as f:
         payloads = f.read().splitlines()
@@ -120,7 +124,9 @@ def main():
         t.start()
     for t in threads:
         t.join()
+    end=time.time()
     print('检测结束，结果已保存至result.txt')
+    print('Scanner down with %0.6f seconds.'% (end - start))
 if __name__=="__main__":
     main()
 
