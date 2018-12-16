@@ -11,3 +11,5 @@
 - [子域名扫描](https://github.com/saucer-man/penetration-script/tree/master/subdomain_scan)
 
 - [网站url爬行采集](https://github.com/saucer-man/penetration-script/tree/master/url_crawler)
+
+- [获取全国高校url](https://github.com/saucer-man/penetration-script/tree/master/get_school_url)
