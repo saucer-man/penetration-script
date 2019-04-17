@@ -10,4 +10,4 @@
 - [网站url爬行采集](https://github.com/saucer-man/penetration-script/tree/master/url_crawler)
 - [获取全国高校url](https://github.com/saucer-man/penetration-script/tree/master/get_school_url)
 - [sql盲注脚本](https://github.com/saucer-man/penetration-script/tree/master/sql_injection)
-
+- [爬取免费代理](https://github.com/saucer-man/penetration-script/tree/master/get_proxy)
