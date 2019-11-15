@@ -11,3 +11,4 @@
 - [php随机亦或生成某关键字](https://github.com/saucer-man/penetration-script/tree/master/%E7%94%9F%E6%88%90%E6%B7%B7%E6%B7%86php%E5%8F%98%E9%87%8F(%E8%BF%87waf))
 - [域名批量转ip](https://github.com/saucer-man/penetration-script/blob/master/%E5%9F%9F%E5%90%8D%E6%89%B9%E9%87%8F%E8%BD%ACip.py)
 - [根据网段生成ip列表](https://github.com/saucer-man/penetration-script/blob/master/%E6%89%A9%E5%B1%95ip%E7%BD%91%E6%AE%B5.py)
+- [内外方面探测开放端口](https://github.com/saucer-man/penetration-script/tree/master/open_port_scan)
