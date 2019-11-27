@@ -22,10 +22,11 @@ masscan -p1-65535 -oJ a.json 192.168.1.0
 ```
 import json
 port_list =[]
-with open('C:\\Users\\ttt\\Desktop\\a.json', 'r', encoding='utf-8') as f:
+with open('a.json', 'r', encoding='utf-8') as f:
         f_dict = json.load(f)
         for dic in f_dict:
             for port in dic['ports']:
                 port_list.append(port['port'])
-print(port_list)
+port_list = [str(x) for x in sorted(port_list)]
+print(",".join(port_list))
 ```
