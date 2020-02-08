@@ -13,3 +13,4 @@
 - [根据网段生成ip列表](https://github.com/saucer-man/penetration-script/blob/master/%E6%89%A9%E5%B1%95ip%E7%BD%91%E6%AE%B5.py)
 - [内外方面探测开放端口](https://github.com/saucer-man/penetration-script/tree/master/open_port_scan)
 - [基于selenium的登录爆破脚本]( https://github.com/saucer-man/penetration-script/blob/master/brute/brute_login.py )
+- [webshell合集](https://github.com/saucer-man/penetration-script/tree/master/webshell)
