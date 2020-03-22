@@ -5,7 +5,6 @@
 - [端口扫描(python-nmap)](https://github.com/saucer-man/penetration-script/blob/master/port_scan/port_scan.py)
 - [信息泄露扫描(备份文件、git、svn等)](https://github.com/saucer-man/penetration-script/tree/master/source_leak)
 - [sql盲注框架](https://github.com/saucer-man/penetration-script/tree/master/sql_injection)
-- [子域名爆破](https://github.com/saucer-man/penetration-script/tree/master/subdomain_scan)
 - [未授权服务扫描](https://github.com/saucer-man/penetration-script/tree/master/unauth_test)
 - [递归爬取某链接中的url](https://github.com/saucer-man/penetration-script/tree/master/url_crawler)
 - [php随机亦或生成某关键字](https://github.com/saucer-man/penetration-script/tree/master/%E7%94%9F%E6%88%90%E6%B7%B7%E6%B7%86php%E5%8F%98%E9%87%8F(%E8%BF%87waf))
@@ -13,4 +12,6 @@
 - [根据网段生成ip列表](https://github.com/saucer-man/penetration-script/blob/master/%E6%89%A9%E5%B1%95ip%E7%BD%91%E6%AE%B5.py)
 - [内外方面探测开放端口](https://github.com/saucer-man/penetration-script/tree/master/open_port_scan)
 - [基于selenium的登录爆破脚本]( https://github.com/saucer-man/penetration-script/blob/master/brute/brute_login.py )
-- [webshell合集](https://github.com/saucer-man/penetration-script/tree/master/webshell)
+-  子域名相关
+    - [子域名爆破](https://github.com/saucer-man/penetration-script/tree/master/subdomain/subdomain_scan)
+    - [基于各大在线网站的子域名收集脚本](https://github.com/saucer-man/penetration-script/blob/master/subdomain/subdomain_crawl.sh)
