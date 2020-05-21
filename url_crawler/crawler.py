@@ -88,7 +88,7 @@ class spider():
 
 
 if __name__ == '__main__':
-    time.clock()
+    time.perf_counter()
     domain = domain_get()
     print('domain:', domain)
     key_tmp  = tldextract.extract(domain)
@@ -100,6 +100,6 @@ if __name__ == '__main__':
     spider = spider(domain = domain, key = key, depth = 3)
     spider.run()
     print('结果已保存至result.txt中')
-    print('time:',time.clock())
+    print('time:', time.perf_counter())
 
 

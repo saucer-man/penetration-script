@@ -1,10 +1,12 @@
 - shell命令
 ```
 # 全部开放的端口
-echo $(netstat -antlp|awk -F ':' '{print $2}'| awk '{print $1}'|grep -v "^$"|sort -n| uniq) | sed 's/[ ][ ]*/,/g'
+echo $(sudo netstat -sntlp|awk -F '[ ]+' '{print $4}'| awk -F '[:]+' '{print $NF}'|grep -P '\d+'|grep -v "^$"|sort -n| uniq) | sed 's/[ ][ ]*/,/g'
+
 
 # listen中的端口
-echo $(netstat -ntlp|awk -F ':' '{print $2}'| awk '{print $1}'|grep -v "^$"|sort -n| uniq) | sed 's/[ ][ ]*/,/g'
+echo $(sudo netstat -ntlp|awk -F '[ ]+' '{print $4}'| awk -F '[:]+' '{print $NF}'|grep -P '\d+'|grep -v "^$"|sort -n| uniq) | sed 's/[ ][ ]*/,/g'
+
 ```
 
 - masscan
